@@ -1,0 +1,467 @@
+$Macro SRCDIR		"..\.."
+
+$Include "$SRCDIR\vpc_scripts\source_lib_base.vpc"
+
+$Configuration
+{	
+	$Compiler
+	{
+        $DisableSpecificWarnings "$BASE;4231;4251;4275;4355;4505"
+        $Create/UsePrecompiledHeader	"Use Precompiled Header (/Yu)"
+		$Create/UsePCHThroughFile		"pch.h"
+    }
+}
+
+$Configuration "Debug"
+{	
+	$Compiler
+	{
+        $BasicRuntimeChecks "Both (/RTC1, equiv. to /RTCsu)"
+    }
+}
+
+$Project "cryptlib" 
+{
+    // The order of the first three matters
+    $File "cryptlib.cpp"
+    $File "cpu.cpp"
+    $File "integer.cpp"
+
+    $File "3way.cpp"
+    $File "adler32.cpp"
+    $File "algebra.cpp"
+    $File "algparam.cpp"
+    $File "allocate.cpp"
+    $File "arc4.cpp"
+    $File "aria.cpp"
+    $File "ariatab.cpp"
+    $File "asn.cpp"
+    $File "authenc.cpp"
+    $File "base32.cpp"
+    $File "base64.cpp"
+    $File "basecode.cpp"
+    $File "bfinit.cpp"
+    $File "blake2.cpp"
+    $File "blake2s_simd.cpp"
+    $File "blake2b_simd.cpp"
+    $File "blowfish.cpp"
+    $File "blumshub.cpp"
+    $File "camellia.cpp"
+    $File "cast.cpp"
+    $File "casts.cpp"
+    $File "cbcmac.cpp"
+    $File "ccm.cpp"
+    $File "chacha.cpp"
+    $File "chacha_simd.cpp"
+    $File "chacha_avx.cpp"
+    {
+        $Configuration {
+            $Compiler {
+                $EnableEnhancedInstructionSet "AVX2"
+            }
+        }
+    }
+    $File "chachapoly.cpp"
+    $File "cham.cpp"
+    $File "cham_simd.cpp"
+    $File "channels.cpp"
+    $File "cmac.cpp"
+    $File "crc.cpp"
+    $File "crc_simd.cpp"
+    $File "darn.cpp"
+    $File "default.cpp"
+    $File "des.cpp"
+    $File "dessp.cpp"
+    $File "dh.cpp"
+    $File "dh2.cpp"
+    $File_NoPCH "dll.cpp"
+    $File "donna_32.cpp"
+    $File "donna_64.cpp"
+    $File "donna_sse.cpp"
+    $File "dsa.cpp"
+    $File "eax.cpp"
+    $File "ec2n.cpp"
+    // eccrypto.cpp
+    // eprecomp.cpp
+    $File "ecp.cpp"
+    $File "elgamal.cpp"
+    $File "emsa2.cpp"
+    $File "esign.cpp"
+    $File "files.cpp"
+    $File "filters.cpp"
+    $File "fips140.cpp"
+    $File "fipstest.cpp"
+    $File "gcm.cpp"
+    $File "gcm_simd.cpp"
+    $File "gf256.cpp"
+    $File "gf2_32.cpp"
+    $File "gf2n.cpp"
+    $File "gf2n_simd.cpp"
+    $File "gfpcrypt.cpp"
+    $File "gost.cpp"
+    $File "gzip.cpp"
+    $File "hc128.cpp"
+    $File "hc256.cpp"
+    $File "hex.cpp"
+    $File "hight.cpp"
+    $File "hmac.cpp"
+    $File "hrtimer.cpp"
+    $File "ida.cpp"
+    $File "idea.cpp"
+    $File_NoPCH "iterhash.cpp"
+    $File "kalyna.cpp"
+    $File "kalynatab.cpp"
+    $File "keccak.cpp"
+    $File "keccak_core.cpp"
+    $File "keccak_simd.cpp"
+    $File "lea.cpp"
+    $File "lea_simd.cpp"
+    $File "lsh256.cpp"
+    $File "lsh256_sse.cpp"
+    $File "lsh256_avx.cpp"
+    $File "lsh512.cpp"
+    $File "lsh512_sse.cpp"
+    $File "lsh512_avx.cpp"
+    $File "luc.cpp"
+    $File "mars.cpp"
+    $File "marss.cpp"
+    $File "md2.cpp"
+    $File "md4.cpp"
+    $File "md5.cpp"
+    $File "misc.cpp"
+    $File "modes.cpp"
+    $File "mqueue.cpp"
+    $File "mqv.cpp"
+    $File "nbtheory.cpp"
+    $File "oaep.cpp"
+    $File "osrng.cpp"
+    $File "padlkrng.cpp"
+    $File "panama.cpp"
+    $File "pch.cpp"
+    {
+        $Configuration
+        {
+            $Compiler
+            {
+                $Create/UsePrecompiledHeader	"Create Precompiled Header (/Yc)"
+            }
+        }
+    }
+    $File "pkcspad.cpp"
+    $File "poly1305.cpp"
+    $File "polynomi.cpp"
+    $File "primetab.cpp"
+    $File "pssr.cpp"
+    $File "pubkey.cpp"
+    $File "queue.cpp"
+    $File "rabin.cpp"
+    $File "randpool.cpp"
+    $File "rabbit.cpp"
+    $File "rc2.cpp"
+    $File "rc5.cpp"
+    $File "rc6.cpp"
+    $File "rdrand.cpp"
+    $File "rdtables.cpp"
+    $File "rijndael.cpp"
+    $File "rijndael_simd.cpp"
+    $File "ripemd.cpp"
+    $File "rng.cpp"
+    $File "rsa.cpp"
+    $File "rw.cpp"
+    $File "safer.cpp"
+    $File "salsa.cpp"
+    $File "scrypt.cpp"
+    $File "seal.cpp"
+    $File "seed.cpp"
+    $File "serpent.cpp"
+    $File "sha.cpp"
+    $File "sha_simd.cpp"
+    $File "sha3.cpp"
+    $File "shacal2.cpp"
+    $File "shacal2_simd.cpp"
+    $File "shake.cpp"
+    $File "shark.cpp"
+    $File "sharkbox.cpp"
+    $File "simeck.cpp"
+    $File "simon.cpp"
+    $File "simon128_simd.cpp"
+    $File "simple.cpp"
+    $File "skipjack.cpp"
+    $File "sm3.cpp"
+    $File "sm4.cpp"
+    $File "sm4_simd.cpp"
+    $File "sosemanuk.cpp"
+    $File "speck.cpp"
+    $File "speck128_simd.cpp"
+    $File "square.cpp"
+    $File "squaretb.cpp"
+    $File "sse_simd.cpp"
+    $File "strciphr.cpp"
+    $File "tea.cpp"
+    $File "tftables.cpp"
+    $File "threefish.cpp"
+    $File "tiger.cpp"
+    $File "tigertab.cpp"
+    $File "ttmac.cpp"
+    $File "tweetnacl.cpp"
+    $File "twofish.cpp"
+    $File "vmac.cpp"
+    $File "wake.cpp"
+    $File "whrlpool.cpp"
+    $File "xed25519.cpp"
+    $File "xtr.cpp"
+    $File "xtrcrypt.cpp"
+    $File "xts.cpp"
+    $File "zdeflate.cpp"
+    $File "zinflate.cpp"
+    $File "zlib.cpp"
+
+    $File "License.txt"
+    $File "Readme.txt"
+
+    $File "cpuid64.asm" [$WIN64]
+    {
+        $Configuration
+        {
+            $CustomBuildStep
+            {
+                // General
+                $CommandLine			"ml64.exe /c /nologo /D_M_X64 /W3 /Zi /Fo$QUOTE$(IntDir)\$(InputName).obj$QUOTE $QUOTE$(InputPath)$QUOTE"
+                $Description			"Compiling $(InputName).asm"
+                $Outputs			"$(IntDir)\$(InputName).obj"
+            }
+        }
+    }
+    $File "rdrand.asm" [$WINDOWS]
+    {
+        $Configuration
+        {
+            $CustomBuildStep
+            {
+                // General
+                $CommandLine			"ml.exe /c /nologo /D_M_X86 /W3 /Cx /Zi /safeseh /Fo$QUOTE$(IntDir)\$(InputName).obj$QUOTE $QUOTE$(InputPath)$QUOTE" [$WIN32]
+                $CommandLine			"ml64.exe /c /nologo /D_M_X64 /W3 /Cx /Zi /safeseh /Fo$QUOTE$(IntDir)\$(InputName).obj$QUOTE $QUOTE$(InputPath)$QUOTE" [$WIN64]
+                $Description			"Compiling $(InputName).asm"
+                $Outputs			"$(IntDir)\$(InputName).obj"
+            }
+        }
+    }
+    $File "rdseed.asm" [$WINDOWS]
+    {
+        $Configuration
+        {
+            $CustomBuildStep
+            {
+                // General
+                $CommandLine			"ml.exe /c /nologo /D_M_X86 /W3 /Cx /Zi /safeseh /Fo$QUOTE$(IntDir)\$(InputName).obj$QUOTE $QUOTE$(InputPath)$QUOTE" [$WIN32]
+                $CommandLine			"ml64.exe /c /nologo /D_M_X64 /W3 /Cx /Zi /safeseh /Fo$QUOTE$(IntDir)\$(InputName).obj$QUOTE $QUOTE$(InputPath)$QUOTE" [$WIN64]
+                $Description			"Compiling $(InputName).asm"
+                $Outputs			"$(IntDir)\$(InputName).obj"
+            }
+        }
+    }
+    $File "x64dll.asm" [$WIN64]
+    {
+        $Configuration
+        {
+            $CustomBuildStep
+            {
+                // General
+                $CommandLine			"ml64.exe /c /nologo /D_M_X64 /W3 /Zi /Fo$QUOTE$(IntDir)\$(InputName).obj$QUOTE $QUOTE$(InputPath)$QUOTE"
+                $Description			"Compiling $(InputName).asm"
+                $Outputs			"$(IntDir)\$(InputName).obj"
+            }
+        }
+    }
+    $File "x64masm.asm" [$WIN64]
+    {
+        $Configuration
+        {
+            $CustomBuildStep
+            {
+                // General
+                $CommandLine			"ml64.exe /c /nologo /D_M_X64 /W3 /Zi /Fo$QUOTE$(IntDir)\$(InputName).obj$QUOTE $QUOTE$(InputPath)$QUOTE"
+                $Description			"Compiling $(InputName).asm"
+                $Outputs			"$(IntDir)\$(InputName).obj"
+            }
+        }
+    }
+    $File "3way.h"
+    $File "adler32.h"
+    $File "adv_simd.h"
+    $File "aes.h"
+    $File "algebra.h"
+    $File "algparam.h"
+    $File "allocate.h"
+    $File "arc4.h"
+    $File "aria.h"
+    $File "argnames.h"
+    $File "asn.h"
+    $File "authenc.h"
+    $File "base32.h"
+    $File "base64.h"
+    $File "basecode.h"
+    $File "blake2.h"
+    $File "blowfish.h"
+    $File "blumshub.h"
+    $File "camellia.h"
+    $File "cast.h"
+    $File "cbcmac.h"
+    $File "ccm.h"
+    $File "chacha.h"
+    $File "chachapoly.h"
+    $File "cham.h"
+    $File "channels.h"
+    $File "cmac.h"
+    $File "config.h"
+    $File "config_align.h"
+    $File "config_asm.h"
+    $File "config_cpu.h"
+    $File "config_cxx.h"
+    $File "config_dll.h"
+    $File "config_int.h"
+    $File "config_misc.h"
+    $File "config_ns.h"
+    $File "config_os.h"
+    $File "config_ver.h"
+    $File "cpu.h"
+    $File "crc.h"
+    $File "cryptlib.h"
+    $File "darn.h"
+    $File "default.h"
+    $File "des.h"
+    $File "dh.h"
+    $File "dh2.h"
+    $File "dmac.h"
+    $File "drbg.h"
+    $File "donna.h"
+    $File "donna_32.h"
+    $File "donna_64.h"
+    $File "donna_sse.h"
+    $File "dsa.h"
+    $File "eax.h"
+    $File "ec2n.h"
+    $File "eccrypto.h"
+    $File "ecp.h"
+    $File "ecpoint.h"
+    $File "elgamal.h"
+    $File "emsa2.h"
+    $File "eprecomp.h"
+    $File "esign.h"
+    $File "files.h"
+    $File "filters.h"
+    $File "fips140.h"
+    $File "fhmqv.h"
+    $File "fltrimpl.h"
+    $File "gcm.h"
+    $File "gf256.h"
+    $File "gf2_32.h"
+    $File "gf2n.h"
+    $File "gfpcrypt.h"
+    $File "gost.h"
+    $File "gzip.h"
+    $File "hc128.h"
+    $File "hc256.h"
+    $File "hex.h"
+    $File "hight.h"
+    $File "hkdf.h"
+    $File "hmac.h"
+    $File "hmqv.h"
+    $File "hrtimer.h"
+    $File "ida.h"
+    $File "idea.h"
+    $File "integer.h"
+    $File "iterhash.h"
+    $File "kalyna.h"
+    $File "keccak.h"
+    $File "lubyrack.h"
+    $File "lea.h"
+    $File "lsh.h"
+    $File "luc.h"
+    $File "mars.h"
+    $File "md2.h"
+    $File "md4.h"
+    $File "md5.h"
+    $File "mdc.h"
+    $File "misc.h"
+    $File "modarith.h"
+    $File "modes.h"
+    $File "modexppc.h"
+    $File "mqueue.h"
+    $File "mqv.h"
+    $File "naclite.h"
+    $File "nbtheory.h"
+    $File "nr.h"
+    $File "oaep.h"
+    $File "oids.h"
+    $File "osrng.h"
+    $File "padlkrng.h"
+    $File "panama.h"
+    $File "pch.h"
+    $File "pkcspad.h"
+    $File "poly1305.h"
+    $File "polynomi.h"
+    $File "pssr.h"
+    $File "pubkey.h"
+    $File "pwdbased.h"
+    $File "queue.h"
+    $File "rabin.h"
+    $File "randpool.h"
+    $File "rabbit.h"
+    $File "rc2.h"
+    $File "rc5.h"
+    $File "rc6.h"
+    $File "rdrand.h"
+    $File "rijndael.h"
+    $File "ripemd.h"
+    $File "rng.h"
+    $File "rsa.h"
+    $File "rw.h"
+    $File "safer.h"
+    $File "salsa.h"
+    $File "scrypt.h"
+    $File "seal.h"
+    $File "secblock.h"
+    $File "secblockfwd.h"
+    $File "seckey.h"
+    $File "seed.h"
+    $File "serpent.h"
+    $File "sha.h"
+    $File "sha3.h"
+    $File "shacal2.h"
+    $File "shake.h"
+    $File "shark.h"
+    $File "simple.h"
+    $File "simeck.h"
+    $File "simon.h"
+    $File "siphash.h"
+    $File "skipjack.h"
+    $File "sm3.h"
+    $File "sm4.h"
+    $File "smartptr.h"
+    $File "sosemanuk.h"
+    $File "speck.h"
+    $File "square.h"
+    $File "stdcpp.h"
+    $File "strciphr.h"
+    $File "tea.h"
+    $File "threefish.h"
+    $File "tiger.h"
+    $File "trap.h"
+    $File "trunhash.h"
+    $File "ttmac.h"
+    $File "tweetnacl.h"
+    $File "twofish.h"
+    $File "vmac.h"
+    $File "wake.h"
+    $File "whrlpool.h"
+    $File "words.h"
+    $File "xed25519.h"
+    $File "xtr.h"
+    $File "xtrcrypt.h"
+    $File "xts.h"
+    $File "zdeflate.h"
+    $File "zinflate.h"
+    $File "zlib.h"
+
+}
