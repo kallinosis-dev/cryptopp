@@ -55,8 +55,10 @@ $Project "cryptlib"
     $File "chacha_simd.cpp"
     $File "chacha_avx.cpp"
     {
-        $Configuration {
-            $Compiler {
+        $Configuration 
+        {
+            $Compiler 
+            {
                 $EnableEnhancedInstructionSet "AVX2"
             }
         }
@@ -74,7 +76,16 @@ $Project "cryptlib"
     $File "dessp.cpp"
     $File "dh.cpp"
     $File "dh2.cpp"
-    $File_NoPCH "dll.cpp"
+    $File "dll.cpp"
+    {
+        $Configuration
+        {
+            $Compiler
+            {
+                $Create/UsePrecompiledHeader	"Not Using Precompiled Headers"
+            }
+        }
+    }
     $File "donna_32.cpp"
     $File "donna_64.cpp"
     $File "donna_sse.cpp"
@@ -108,7 +119,16 @@ $Project "cryptlib"
     $File "hrtimer.cpp"
     $File "ida.cpp"
     $File "idea.cpp"
-    $File_NoPCH "iterhash.cpp"
+    $File "iterhash.cpp"
+    {
+        $Configuration
+        {
+            $Compiler
+            {
+                $Create/UsePrecompiledHeader	"Not Using Precompiled Headers"
+            }
+        }
+    }
     $File "kalyna.cpp"
     $File "kalynatab.cpp"
     $File "keccak.cpp"
