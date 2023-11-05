@@ -7,8 +7,8 @@ $Configuration
 	$Compiler
 	{
         $DisableSpecificWarnings "$BASE;4231;4251;4275;4355;4505"
-        $Create/UsePrecompiledHeader	"Use Precompiled Header (/Yu)"
-		$Create/UsePCHThroughFile		"pch.h"
+        //$Create/UsePrecompiledHeader	"Use Precompiled Header (/Yu)"
+		//$Create/UsePCHThroughFile		"pch.h"
     }
 }
 
@@ -114,7 +114,7 @@ $Project "cryptlib"
     $File "hc128.cpp"
     $File "hc256.cpp"
     $File "hex.cpp"
-    $File "hight.cpp"
+	$File "hight.cpp"
     $File "hmac.cpp"
     $File "hrtimer.cpp"
     $File "ida.cpp"
@@ -157,16 +157,16 @@ $Project "cryptlib"
     $File "osrng.cpp"
     $File "padlkrng.cpp"
     $File "panama.cpp"
-    $File "pch.cpp"
-    {
-        $Configuration
-        {
-            $Compiler
-            {
-                $Create/UsePrecompiledHeader	"Create Precompiled Header (/Yc)"
-            }
-        }
-    }
+    //$File "pch.cpp"
+    //{
+    //    $Configuration
+    //    {
+    //        $Compiler
+    //        {
+    //            $Create/UsePrecompiledHeader	"Create Precompiled Header (/Yc)"
+    //        }
+    //    }
+    //}
     $File "pkcspad.cpp"
     $File "poly1305.cpp"
     $File "polynomi.cpp"
@@ -252,7 +252,7 @@ $Project "cryptlib"
             }
         }
     }
-    $File "rdrand.asm" [$WINDOWS]
+    $File "rdrand.asm" [0]
     {
         $Configuration
         {
@@ -266,7 +266,7 @@ $Project "cryptlib"
             }
         }
     }
-    $File "rdseed.asm" [$WINDOWS]
+    $File "rdseed.asm" [0]
     {
         $Configuration
         {
